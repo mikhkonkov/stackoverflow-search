@@ -1,5 +1,13 @@
 class Api::V1::Stackoverflow::SearchController < Api::V1::Stackoverflow::ApplicationController
 
+  swagger_controller :search, "Search questions of Stackoverflow"
+
+  swagger_api :index do
+    summary 'Search question'
+    param :query, :q, :string, :required, 'Query'
+    response :unauthorized
+  end
+
   def index
     api_path = 'https://api.stackexchange.com/2.2'
     response = HTTParty.get("#{ api_path }/search",
