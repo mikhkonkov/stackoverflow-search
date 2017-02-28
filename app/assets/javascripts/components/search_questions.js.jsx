@@ -30,12 +30,22 @@ class SearchQuestions extends React.Component {
   }
 
   renderSearchInput() {
-    return <input value={this.state.searchQuery} onChange={this.onChangeSearchInput.bind(this)} />
+    return <input
+      type="text"
+      value={this.state.searchQuery}
+      onChange={this.onChangeSearchInput.bind(this)}
+      placeholder="Search..."
+    />;
   }
 
   render() {
     return <div>
-      {this.renderSearchInput()}
+      <div className="row">
+        <div className="small-12 columns">
+          <h3>Search on Stackoverflow</h3>
+          {this.renderSearchInput()}
+        </div>
+      </div>
       <QuestionList list={this.state.list} />
     </div>;
   }
