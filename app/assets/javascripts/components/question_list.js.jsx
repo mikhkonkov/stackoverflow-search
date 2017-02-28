@@ -11,8 +11,10 @@ class QuestionList extends React.Component {
         return <div key={index} className="row">
           <div className="small-12 columns">
             <a href={question.link} target='_blank'>{question.link}</a>
-            <p>{question.title}</p>
           </div>
+          <div className="small-12 columns"><p>
+              <span>{question.title}</span> <em>{question.createdDate}</em>
+          </p></div>
         </div>;
       })}
     </div>;
